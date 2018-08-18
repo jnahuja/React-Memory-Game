@@ -17,19 +17,20 @@ class App extends Component {
     score: 0,
     topScore: 0,
     gameResult: "",
-    guessedArray: []
+    guessedArray: [],
+    message: "Click an Image to Begin!"
   };
 
-  printScore = () => {
+  // printScore = () => {
 
-  }
+  // }
 
   handleClick = id => {
     this.removeFriend(id);
     // if (friend.id)   FINISH THIS LINE OF CODE!
     // if (id)
-    let gameResult = this.state.gameResult;
-    this.scoreUpdate(gameResult);
+    // let gameResult = this.state.gameResult;
+    // this.scoreUpdate(gameResult);
 
   }
 
@@ -49,7 +50,17 @@ class App extends Component {
     this.setState({ score });
     this.setState({ topScore });
     this.setState({ guessedArray });
-    this.printScore();
+    // this.printScore();
+  }
+
+  messageUpdate = result => {
+    let message = this.state.message;
+    if (result=="win") {
+      message = "You Guessed Correctly!";
+    } else if (result=="lose") {
+      message = "You Guessed Incorrectly!";
+    }
+    this.setState({ message });
   }
 
   removeFriend = id => {
@@ -74,6 +85,8 @@ class App extends Component {
     const friends = this.state.friends;
 
     if (gameResult == "win") {
+      guessedArray.push(id);
+      console.log(guessedArray);
       var j, x, i;
         for (i = friends.length - 1; i > 0; i--) {
             j = Math.floor(Math.random() * (i + 1));
@@ -83,6 +96,8 @@ class App extends Component {
         }
     }
 
+    this.scoreUpdate(gameResult);
+    this.messageUpdate(gameResult);
     // Set this.state.friends equal to the new friends array
     this.setState({ friends });
     // this.setState({ score });
@@ -99,6 +114,7 @@ class App extends Component {
           scoreUpdate={this.scoreUpdate}
           score={this.state.score}
           topScore={this.state.topScore}
+          message={this.state.message}
         />
       </Router>
       <Title>Clicky Game!</Title>

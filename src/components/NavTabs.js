@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./NavTabs.css";
 
 const NavTabs = props => (
   
@@ -14,8 +15,8 @@ const NavTabs = props => (
         Clicky Game
       </Link>
     </li>
-    <li className="nav-item col-4">
-      Click and Image to Begin!
+    <li className="nav-item col-4 headerMessage">
+      {props.message}
     </li>
     <li className="nav-item col-4">
       Score: {props.score} | Top Score: {props.topScore}
