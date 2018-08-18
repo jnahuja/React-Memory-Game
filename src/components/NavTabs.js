@@ -6,16 +6,17 @@ const NavTabs = props => (
   
   <ul className="nav nav-tabs text-center">
     <li className="nav-item col-4">
-      <Link
+      Clicky Game
+      {/* <Link
         to="/"
         className={
           window.location.pathname === "/" ? "nav-link active" : "nav-link"
         }
       >
         Clicky Game
-      </Link>
+      </Link> */}
     </li>
-    <li className="nav-item col-4 headerMessage">
+    <li className="nav-item col-4 headerMessage" id={props.result}>
       {props.message}
     </li>
     <li className="nav-item col-4">

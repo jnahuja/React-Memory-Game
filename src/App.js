@@ -115,6 +115,7 @@ class App extends Component {
           score={this.state.score}
           topScore={this.state.topScore}
           message={this.state.message}
+          result={this.state.gameResult}
         />
       </Router>
       <Title>Clicky Game!</Title>
